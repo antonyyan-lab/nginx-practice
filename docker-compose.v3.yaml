@@ -13,7 +13,7 @@ services:
       - web3
 
   web1:
-    image: web1:v0.1.0
+    image: web1:v0.1.1
     
     build:
       context: ./docker
