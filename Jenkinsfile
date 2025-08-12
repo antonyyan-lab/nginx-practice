@@ -19,9 +19,9 @@ pipeline {
             steps {
                 script {
                     // 停止並移除舊容器
-                    sh "docker-compose -f ${env.COMPOSE_FILE} down || true"
+                    sh "docker-compose -f ${env.COMPOSE_FILE} down web1 || true"
                     // 啟動新容器（後台運行）
-                    sh "docker-compose -f ${env.COMPOSE_FILE} up -d"
+                    sh "docker-compose -f ${env.COMPOSE_FILE} up -d web1" 
                 }
             }
         }
