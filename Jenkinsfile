@@ -7,7 +7,7 @@ pipeline {
         SERVICE_NAME = 'web1'
     }
     stages {
-        stage('Checkout from GitHub')
+        stage('Checkout from GitHub') {
             steps {
                 script {
                     // 1. 从GitHub检出代码（含标签信息）
@@ -28,6 +28,7 @@ pipeline {
                     echo "使用的Git标签: ${env.APP_VERSION}"                    
                 }
             }
+        }
         stage('Build') {
             steps {
                 script {
