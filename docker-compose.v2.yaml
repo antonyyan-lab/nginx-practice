@@ -1,8 +1,6 @@
-version: '3'
-
 services:
 # Using nginx as proxy server only and redirect traffic to web1 or web2 container
-  nginx:
+  lb:
     image: nginx:latest
     ports:
     # Inbound port 1000 -> 80 port on container
@@ -20,7 +18,7 @@ services:
     # Inbound port 8081 -> 80 port on container
       - 8081:80
     volumes:
-      - ./web1/index.html:/usr/share/nginx/html/index.html
+      - ./src/web1/index.html:/usr/share/nginx/html/index.html
       - ./nginx.conf:/etc/nginx/nginx.conf
 
 
@@ -30,7 +28,7 @@ services:
     # Inbound port 8082 -> 80 port on container
       - 8082:80
     volumes:
-      - ./web2/index.html:/usr/share/nginx/html/index.html
+      - ./src/web2/index.html:/usr/share/nginx/html/index.html
       - ./nginx.conf:/etc/nginx/nginx.conf
 
   web3:
@@ -39,5 +37,5 @@ services:
     # Inbound port 8083 -> 80 port on container
       - 8083:80
     volumes:
-      - ./web3/index.html:/usr/share/nginx/html/index.html
+      - ./src/web3/index.html:/usr/share/nginx/html/index.html
       - ./nginx.conf:/etc/nginx/nginx.conf
