@@ -18,7 +18,7 @@ services:
       dockerfile: Dockerfile.web1
 
     # define image version with Tag in GitHub where tag is getting from Jenkins script (Jenkensfile)
-    image: web1:%{APP_VERSION}
+    image: web1:${APP_VERSION}
 
     ports:
     # Inbound port 8081 -> 80 port on container
