@@ -10,6 +10,7 @@ jobs:
       - name: Validate merge source
         if: github.base_ref == 'refs/heads/main'
         run: |
+          echo "${{ github.base_ref }}"
           ALLOWED_BRANCHS="dev|hotfix/"
           if [[ ! "${{ github.head_ref }}" =~ $ALLOWED_BRANCHES ]]; then
             echo "::error::合并到 main 只允许从 dev 或 hotfix 分支发起！"
